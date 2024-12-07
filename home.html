@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Database Migration</title>
 </head>
 <body>
-$END$
+    <h1>Database Migration</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="migrate_mongo">Migrate to MongoDB</button>
+        <button type="submit" name="migrate_cassandra">Migrate to Cassandra</button>
+    </form>
 </body>
 </html>
