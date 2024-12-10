@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="potenciar_solidario" uuid="fc08d8ed-3188-4fee-8e12-7a578a59e2f2">
+    <data-source source="LOCAL" name="potenciar_solidario_MYSQL" uuid="fc08d8ed-3188-4fee-8e12-7a578a59e2f2">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
@@ -17,6 +17,20 @@
       <remarks>$PROJECT_DIR$/database_administration/settings.py</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/potenciar_solidario</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="potenciar_solidario_MONGODB" uuid="d2e76bca-4218-4400-abdc-2e55760d1499">
+      <driver-ref>mongo.4</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb://localhost:27017/potenciar_solidario</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="potenciar_solidario_APACHECASSANDRA" uuid="d0a12f00-2ba2-4fe9-b1a5-024490bf62c8">
+      <driver-ref>cassandra</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.ing.data.cassandra.jdbc.CassandraDriver</jdbc-driver>
+      <jdbc-url>jdbc:cassandra://localhost:9042/potenciar_solidario</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

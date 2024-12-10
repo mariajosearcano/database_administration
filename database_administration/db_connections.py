@@ -11,10 +11,10 @@ def get_mysql_connection():
     )
 
 def get_mongo_connection():
-    client = MongoClient('localhost', 7000)
+    client = MongoClient('localhost', 27017)
     return client['potenciar_solidario']
 
 def get_cassandra_connection():
-    cluster = Cluster(['e254434981bc'])
+    cluster = Cluster(['localhost'])
     session = cluster.connect('potenciar_solidario')
     return session

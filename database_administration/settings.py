@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-4^b5bvow+4(o-clxwxt9gmn@_yvc786o7ol)jd-&hpr9sf(82u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    #'localhost', '127.0.0.1'
+]
 
 
 # Application definition
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'database_administration',
+    'sweetify'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +58,7 @@ ROOT_URLCONF = 'database_administration.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR / 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -87,15 +91,15 @@ DATABASES = {
 
 # MongoDB and Cassandra settings
 MONGO_DB = {
-    'NAME': 'your_mongo_db_name',
-    'HOST': 'your_mongo_host',
+    'NAME': 'potenciar_solidario',
+    'HOST': 'localhost',
     'PORT': 27017
 }
 
 CASSANDRA_DB = {
-    'NAME': 'your_cassandra_db_name',
-    'HOST': 'your_cassandra_host',
-    'PORT': 7000
+    'NAME': 'potenciar_solidario',
+    'HOST': 'localhost',
+    'PORT': 9042
 }
 
 
@@ -135,7 +139,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'

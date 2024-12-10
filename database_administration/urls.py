@@ -14,9 +14,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+# from django.contrib import admin
+# from django.urls import path
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+# ]
+
 from django.urls import path
+from django.contrib import admin
+from database_administration.views import index, mysql, mongodb, apache_cassandra
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    path('mysql/', mysql, name='mysql'),
+    path('mongodb/', mongodb, name='mongodb'),
+    path('apache_cassandra/', apache_cassandra, name='apache_cassandra'),
 ]

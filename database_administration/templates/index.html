@@ -1,0 +1,98 @@
+{% load static %}
+{% load sweetify %}
+{% sweetify %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Principal</title>
+    <link rel="icon" href="{% static 'img/logo.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.css" integrity="sha512-Xxs33QtURTKyRJi+DQ7EKwWzxpDlLSqjC7VYwbdWW9zdhrewgsHoim8DclqjqMlsMeiqgAi51+zuamxdEP2v1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />#}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+{#    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}">#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">#}
+{#    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="{% static 'css/Pretty-Footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- <link rel="stylesheet" href="assets/css/database.css"> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="{% url 'index' %}"><img id="logo" src="{% static 'img/logo.jpg' %}"><strong>&nbsp;Administracion de Bases de Datos</strong></a><button data-toggle="collapse" class="navbar-toggle collapsed" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'mysql' %}">&nbsp;Base de datos MySQL</a></li>
+                    <li><a href="#footer">Sobre mi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="promo">
+        <form class="jumbotron" method="post">
+            {% csrf_token %}
+            <h1>Migrar MySQL</h1>
+            <p class="buttons">
+                <button type="submit" name="migrate_mongo" class="btn btn-info btn-lg">A MongoDB</button>
+                <button type="submit" name="migrate_cassandra" class="btn btn-info btn-lg">A Apache Cassandra</button>
+            </p>
+        </form>
+    </div>
+    <div class="promo">
+        <form class="jumbotron" method="get">
+            {% csrf_token %}
+            <h1>Procedimientos Almacenados</h1>
+            <p class="buttons">
+                <button type="submit" name="calculate_expenses" class="btn btn-info btn-lg" id="expenses">Calcular Egresos Totales</button>
+                <button type="submit" name="calculate_income" class="btn btn-info btn-lg" id="income">Calcular Ingresos Totales</button>
+            </p>
+        </form>
+    </div>
+    <div class="dark-section"></div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 footer-contacts">
+                    <div><box-icon name='map-pin' type='solid' color='#ffffff' ></box-icon>
+                        <p><span class="new-line-span">Envigado, Colombia</span></p>
+                    </div>
+                    <div><box-icon name='phone' type='solid' color='#ffffff' ></box-icon>
+                        <p class="footer-center-info email text-left"> +57 305 2949117</p>
+                    </div>
+                    <div><box-icon name='envelope' type='solid' color='#ffffff' ></box-icon>
+                        <p> <a href="mailto:mariajosearcano@gmail.com" target="_blank">maria_arcila82221@elpoli.edu.co</a></p>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>Sobre el Proyecto</h4>
+                    <p> Proyecto Final materia Bases de Datos 2. Consta de migrar una base de datos en MySQL a MongoDB y Apache Cassandra, ademas de ejecutar procedimientos almecenados en la BD de origen.</p>
+                    <div class="social-links social-icons">
+                        <a href="https://www.facebook.com/politecnicojic/"><box-icon name='facebook' type='logo' color='#ffffff' ></box-icon></a>
+                        <a href="https://x.com/politecnicojic?lang=en"><box-icon name='twitter' type='logo' color='#ffffff' ></box-icon></a>
+                        <a href="https://www.linkedin.com/school/polit%C3%A9cnico-colombiano-'jaime-isaza-cadavid'/"><box-icon name='linkedin' type='logo' color='#ffffff' ></box-icon></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <div id="expenses-data" data-total="{{ total_expenses | default:0 }}"></div>
+    <div id="income-data" data-total="{{ total_income | default:0 }}"></div>
+    <script src="{% static 'js/index.js' %}"></script>
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.js" integrity="sha512-JCDnPKShC1tVU4pNu5mhCEt6KWmHf0XPojB0OILRMkr89Eq9BHeBP+54oUlsmj8R5oWqmJstG1QoY6HkkKeUAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js"></script>
+</body>
+
+</html>
