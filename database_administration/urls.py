@@ -23,12 +23,24 @@ Including another URLconf
 
 from django.urls import path
 from django.contrib import admin
-from database_administration.views import index, mysql, mongodb, apache_cassandra
+from database_administration.views import (
+    index,
+    mysql,
+    mongodb,
+    apache_cassandra,
+    calculate_income_view,
+    calculate_expenses_view,
+)
 
 urlpatterns = [
+    # PAGES
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('mysql/', mysql, name='mysql'),
     path('mongodb/', mongodb, name='mongodb'),
     path('apache_cassandra/', apache_cassandra, name='apache_cassandra'),
+
+    # API ENDPOINTS
+    path('api/calculate-income/', calculate_income_view, name='calculate_income'),
+    path('api/calculate-expenses/', calculate_expenses_view, name='calculate_expenses'),
 ]

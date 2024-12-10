@@ -38,7 +38,7 @@
         </div>
     </nav>
     <div class="promo">
-        <form class="jumbotron" method="post">
+        <form id="form-migration" class="jumbotron" method="POST">
             {% csrf_token %}
             <h1>Migrar MySQL</h1>
             <p class="buttons">
@@ -48,12 +48,12 @@
         </form>
     </div>
     <div class="promo">
-        <form class="jumbotron" method="get">
+        <form id="form-procedures" class="jumbotron">
             {% csrf_token %}
             <h1>Procedimientos Almacenados</h1>
             <p class="buttons">
-                <button type="submit" name="calculate_expenses" class="btn btn-info btn-lg" id="expenses">Calcular Egresos Totales</button>
                 <button type="submit" name="calculate_income" class="btn btn-info btn-lg" id="income">Calcular Ingresos Totales</button>
+                <button type="submit" name="calculate_expenses" class="btn btn-info btn-lg" id="expenses">Calcular Egresos Totales</button>
             </p>
         </form>
     </div>
