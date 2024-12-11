@@ -13,16 +13,11 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.css" integrity="sha512-Xxs33QtURTKyRJi+DQ7EKwWzxpDlLSqjC7VYwbdWW9zdhrewgsHoim8DclqjqMlsMeiqgAi51+zuamxdEP2v1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />#}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-{#    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}">#}
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">#}
-{#    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>#}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
     <link rel="stylesheet" href="{% static 'css/Pretty-Footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <!-- <link rel="stylesheet" href="assets/css/database.css"> -->
 </head>
 
 <body>
@@ -31,7 +26,9 @@
             <div class="navbar-header"><a class="navbar-brand" href="{% url 'index' %}"><img id="logo" src="{% static 'img/logo.jpg' %}"><strong>&nbsp;Administracion de Bases de Datos</strong></a><button data-toggle="collapse" class="navbar-toggle collapsed" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'mysql' %}">&nbsp;Base de datos MySQL</a></li>
+                    <li><a href="{% url 'mysql' %}">&nbsp;MySQL</a></li>
+                    <li><a href="{% url 'mongodb' %}">&nbsp;MongoDB</a></li>
+                    <li><a href="{% url 'apache_cassandra' %}">&nbsp;Cassandra</a></li>
                     <li><a href="#footer">Sobre mi</a></li>
                 </ul>
             </div>
@@ -90,7 +87,6 @@
     <div id="expenses-data" data-total="{{ total_expenses | default:0 }}"></div>
     <div id="income-data" data-total="{{ total_income | default:0 }}"></div>
     <script src="{% static 'js/index.js' %}"></script>
-{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.5/sweetalert2.min.js" integrity="sha512-JCDnPKShC1tVU4pNu5mhCEt6KWmHf0XPojB0OILRMkr89Eq9BHeBP+54oUlsmj8R5oWqmJstG1QoY6HkkKeUAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js"></script>
 </body>

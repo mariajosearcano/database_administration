@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from database_administration.migration import migrate_to_mongo, migrate_to_cassandra
 from database_administration.procedures import calculate_income, calculate_expenses
-from django.http import HttpResponse
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
@@ -27,21 +26,7 @@ def apache_cassandra(request):
     return render(request, 'apache_cassandra.html')
 
 
-# ENDPOINTS
-# def stored_procedures(request):
-#     print(request.GET)
-#     response = {
-#         'status': 'a'
-#     }
-#
-#     if 'calculate_income' in request.GET:
-#         response = calculate_income(request)
-#         print('somethinggggg')
-#     elif 'calculate_expenses' in request.GET:
-#         response = calculate_expenses(request)
-#
-#     return HttpResponse(response)
-
+# API ENDPOINTS
 @require_http_methods(["POST"])
 def calculate_income_view(request):
     try:

@@ -78,8 +78,6 @@ def migrate_to_cassandra():
             # Convert data types if necessary
             converted_row = []
             for i, value in enumerate(row):
-                # if isinstance(value, str) and column_names[i] == primary_key:
-                #     value = int(value)  # Convert primary key to int if necessary
                 converted_row.append(value)
 
             placeholders = ', '.join(['%s'] * len(column_names))
